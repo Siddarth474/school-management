@@ -85,17 +85,18 @@ Adds a new school to the database.
 **Success Response `201`:**
 ```json
 {
-  "success": true,
-  "message": "School added successfully",
-  "data": {
-    "id": 1,
-    "name": "Delhi Public School",
-    "address": "Mathura Road, New Delhi, Delhi 110003",
-    "latitude": 28.55,
-    "longitude": 77.25,
-    "createdAt": "2026-04-11T10:00:00.000Z",
-    "updatedAt": "2026-04-11T10:00:00.000Z"
-  }
+    "statusCode": 201,
+    "data": {
+        "id": 2,
+        "name": "Kendriya Vidyalaya No.1",
+        "address": "Pusa Road, New Delhi, Delhi 110012",
+        "latitude": 27.6378,
+        "longitude": 77.1752,
+        "createdAt": "2026-04-10T21:35:08.794Z",
+        "updatedAt": "2026-04-10T21:35:08.794Z"
+    },
+    "message": "School added successfully",
+    "success": true
 }
 ```
 
@@ -122,26 +123,31 @@ Returns all schools sorted by distance (nearest first) from the given coordinate
 **Success Response `200`:**
 ```json
 {
-  "success": true,
-  "count": 2,
-  "data": [
-    {
-      "id": 3,
-      "name": "Modern School",
-      "address": "Barakhamba Road, New Delhi",
-      "latitude": 28.62,
-      "longitude": 77.22,
-      "distance_km": 0.91
-    },
-    {
-      "id": 1,
-      "name": "Delhi Public School",
-      "address": "Mathura Road, New Delhi",
-      "latitude": 28.55,
-      "longitude": 77.25,
-      "distance_km": 8.94
-    }
-  ]
+    "statusCode": 200,
+    "data": [
+        {
+            "id": 1,
+            "name": "Springdales School",
+            "address": "Pusa Road, New Delhi, Delhi 110012",
+            "latitude": 28.6378,
+            "longitude": 77.1752,
+            "createdAt": "2026-04-10T13:47:43.727Z",
+            "updatedAt": "2026-04-10T13:47:43.727Z",
+            "distance_km": 4.11
+        },
+        {
+            "id": 2,
+            "name": "Kendriya Vidyalaya No.1",
+            "address": "Pusa Road, New Delhi, Delhi 110012",
+            "latitude": 27.6378,
+            "longitude": 77.1752,
+            "createdAt": "2026-04-10T21:35:08.794Z",
+            "updatedAt": "2026-04-10T21:35:08.794Z",
+            "distance_km": 110.57
+        }
+    ],
+    "message": "Schools fetched successfully",
+    "success": true
 }
 ```
 
@@ -157,8 +163,10 @@ Returns all schools sorted by distance (nearest first) from the given coordinate
 
 ## Postman Collection
 
-1. Import `school management.postman_collection.json`
-2. Select **`School API - Production`** environment to test live URL
+1. Import `postman/school-management.postman_collection.json`
+2. Import `postman/school-management.postman_environment.json`
+3. Select **`School API - Production`** environment to test live URL
+4. Select **`School API - Local`** environment to test locally
 
 ---
 

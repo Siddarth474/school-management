@@ -165,7 +165,6 @@ Returns all schools sorted by distance (nearest first) from the given coordinate
 ## Project Structure
 ```
 src/
-├── config/         # Database connection
 ├── controllers/    # Request/Response handling
 ├── services/       # Business logic
 ├── routes/         # Route definitions

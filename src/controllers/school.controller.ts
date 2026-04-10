@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import * as SchoolService from "../services/school.service.js";
-import { ApiResponse } from "../utils/ApiResponse";
+import { ApiResponse } from "../utils/ApiResponse.js";
 import { ListSchoolsInput, SchoolInput } from "../utils/validator.js";
 
 export const addSchool = async (req: Request, res: Response, next: NextFunction) => {

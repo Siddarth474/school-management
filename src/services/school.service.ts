@@ -12,12 +12,12 @@ export const getSchoolsSortedByDistance = async (coordinates: ListSchoolsInput) 
     const { latitude, longitude } = coordinates;
     const schools = await prisma.school.findMany();
 
-    const schoolsWithDistance = schools.map((school) => ({
+    const schoolsWithDistance = schools.map((school: SchoolInput) => ({
         ...school,
         distance_km: calculateDistance(latitude, longitude, school.latitude, school.longitude),
     }));
 
-    const sortedSchools = schoolsWithDistance.sort((a, b) => a.distance_km - b.distance_km);
+    const sortedSchools = schoolsWithDistance.sort((a: any, b: any) => a.distance_km - b.distance_km);
 
     return sortedSchools;
     

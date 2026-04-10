@@ -1,8 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
   provider = "prisma-client"
@@ -12,62 +7,15 @@ datasource db {
   provider = "postgresql"
 }  
 
-enum Role {
-  STUDENT
-  INSTRUCTOR
-  ADMIN
-}
-
-enum Status {
-  PENDING
-  APPROVED
-  REJECTED
-}
-
-
-
-model User {
-  id Int @id @default(autoincrement())
-  username String @unique @db.VarChar(50)
-  email String @unique @db.VarChar(190)
-  password String @db.VarChar(255)
-  role Role @default(STUDENT)
-  courses Course[] 
-  enrollments Enrollement[]
-  instructorRequest InstructorRequest[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt 
-} 
-
-model Course {
-  id Int @id @default(autoincrement())
-  title String @db.VarChar(70)
-  description String @db.VarChar(255)
-  price Int @db.Integer
-  instructor User @relation(fields: [insructorId], references: [id], onDelete: Cascade)
-  insructorId Int
-  status Status @default(PENDING)
-  enrollments Enrollement[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
-
-model Enrollement {
-  id Int @id @default(autoincrement())
-  userId Int
-  courseId Int
-  user User @relation(fields:[userId], references:[id])
-  course Course @relation(fields:[courseId], references:[id], onDelete: Cascade)
-
-  @@unique([userId, courseId])   
-}
-
-model InstructorRequest {
-  id        String   @id @default(uuid())
-  userId    Int
-  status    Status @default(PENDING)
+model School {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(100)
+  address   String   @db.VarChar(255)
+  latitude  Float
+  longitude Float
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  user      User @relation(fields: [userId], references: [id])
+  @@index([latitude, longitude])  
+  @@map("schools")                
 }

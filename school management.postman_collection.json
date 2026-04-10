@@ -1,0 +1,49 @@
+{
+  "info": {
+    "_postman_id": "34f8768d-3575-49a9-9882-62f584961d64",
+    "name": "school management",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46441372",
+    "_collection_link": "https://go.postman.co/collection/46441372-34f8768d-3575-49a9-9882-62f584961d64?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "add school",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Test School\",\r\n  \"address\": \"Some Address\",\r\n  \"latitude\": \"not-a-number\",\r\n  \"longitude\": 77.22\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/school/addSchool",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "school",
+            "addSchool"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "list schools",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ]
+}
